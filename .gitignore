@@ -1,0 +1,32 @@
+# This repo is the Bilingual Agents landing site (Variant A) ONLY.
+# The folder on disk is a multi-project workspace — everything is ignored
+# by default and website files are explicitly whitelisted below.
+/*
+
+# --- website (deployed) ---
+!/index.html
+!/privacy.html
+!/terms.html
+!/thank-you.html
+!/booked.html
+!/logo.png
+!/og.png
+!/robots.txt
+!/sitemap.xml
+!/llms.txt
+!/vercel.json
+
+# --- generated keyword landing pages ---
+!/bilingual-staffing
+!/hire-bilingual-agents
+!/home-services
+!/insurance
+!/latam-agents
+!/property-management
+
+# --- source of truth + tooling ---
+!/adLandingMap.js
+!/scripts
+!/README.md
+!/.gitignore
+!/.vercelignore

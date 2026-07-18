@@ -1,0 +1,46 @@
+# This root deploy is the Bilingual Agents landing (Variant A) ONLY.
+# Everything it needs at the root: index.html, privacy/terms/thank-you/booked.html,
+# logo.png, og.png, robots.txt, sitemap.xml, llms.txt, vercel.json.
+# Every sibling project in this workspace is excluded so their large assets
+# (raw video, node_modules, .next caches, .db files) never enter the upload
+# and never trip Vercel's 100 MB per-file limit.
+
+# Internal / tooling
+.claude
+.specify
+specs
+scripts
+adLandingMap.js
+CLAUDE.md
+README.md
+reflection-notes.md
+contracts
+onboarding
+welcome
+
+# Sibling projects (each is its own codebase / deploy)
+nexohire-direct
+bilingual-agents-crm
+nasdaq-news-bot
+nq-open-predictor
+nq-bias-rider
+mnq-quant
+abc-futuristic
+abc-maintenance
+cliptours-linkedin-copilot
+expert-extraction
+lethal-descent
+prismstorm
+realreach
+war-room
+war-room-data
+worldcup-terminal
+
+# Safety nets — never ship build artifacts or deps from anywhere
+node_modules
+.next
+.turbo
+dist
+build
+*.mp4
+*.db

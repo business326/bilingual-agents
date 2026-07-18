@@ -1,0 +1,11 @@
+{
+  "cleanUrls": true,
+  "redirects": [
+    {
+      "source": "/(.*)",
+      "has": [{ "type": "host", "value": "staffsidehq.vercel.app" }],
+      "destination": "https://www.bilingualagentsgroup.com/$1",
+      "permanent": true
+    }
+  ]
+}
