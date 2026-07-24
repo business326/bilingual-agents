@@ -5,6 +5,7 @@
 
 # --- website (deployed) ---
 !/index.html
+!/pitch.html
 !/privacy.html
 !/terms.html
 !/thank-you.html
