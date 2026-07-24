@@ -142,6 +142,23 @@ select{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='ht
 .stat .n{font-family:var(--disp);font-weight:800;font-size:2rem;color:#fff;letter-spacing:-.02em;line-height:1}
 .stat .l{color:#AFC0DD;font-size:.9rem;margin-top:9px}
 
+/* -------- rotating tagline (sits above the stat strip) -------- */
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
+.rotline{
+  display:flex;flex-wrap:wrap;align-items:baseline;justify-content:center;gap:.38em;
+  font-family:var(--disp);font-weight:700;letter-spacing:-.01em;
+  font-size:clamp(1.12rem,2.4vw,1.72rem);line-height:1.3;color:#C7D6EE;text-align:center;
+  margin:0 0 clamp(26px,3.2vw,42px)
+}
+/* lifted terracotta — same brand hue, tuned for contrast on navy (6.4:1) */
+.rot{position:relative;display:inline-block;color:#F2865C;white-space:nowrap}
+.rot .rw{font-style:normal;white-space:nowrap}
+.js .rot{height:1.3em;overflow:hidden;vertical-align:bottom;transition:width .55s cubic-bezier(.4,0,.2,1)}
+.js .rot .rw{position:absolute;left:0;top:0;opacity:0;transform:translateY(.6em);
+  transition:opacity .45s ease,transform .45s cubic-bezier(.4,0,.2,1)}
+.js .rot .rw.on{opacity:1;transform:none}
+@media(max-width:560px){.rotline{font-size:1.02rem;gap:.3em}}
+
 /* -------- feature grid -------- */
 .sec-head{max-width:60ch}
 .sec-head .lede{margin-top:14px}
@@ -242,7 +259,7 @@ body.modal-open{overflow:hidden}
 /* -------- reveal -------- */
 .js .reveal{opacity:0;transform:translateY(16px);transition:opacity .6s ease,transform .6s ease}
 .js .reveal.in{opacity:1;transform:none}
-@media(prefers-reduced-motion:reduce){.js .reveal{opacity:1;transform:none}.stamp svg{animation:none}}
+@media(prefers-reduced-motion:reduce){.js .reveal{opacity:1;transform:none}.stamp svg{animation:none}.js .rot,.js .rot .rw{transition:none}}
 
 /* -------- responsive -------- */
 @media(max-width:1000px){
@@ -333,6 +350,11 @@ body.modal-open{overflow:hidden}
 <!-- ===== stat strip (product facts) ===== -->
 <section class="band-navy pad" style="padding-top:clamp(40px,5vw,64px);padding-bottom:clamp(40px,5vw,64px)">
   <div class="wrap">
+    <p class="rotline reveal">
+      <span data-es="Pon un agente bilingüe en">Put a bilingual agent on</span>
+      <span class="rot" id="rot" aria-hidden="true"><i class="rw on">customer support</i></span>
+      <span class="sr-only" data-es="atención al cliente, ventas entrantes, agendamiento de citas, despacho y horarios, seguimiento de reclamos, solicitudes de inquilinos, prospección en frío o carga de datos al CRM.">customer support, inbound sales, appointment setting, dispatch &amp; scheduling, claims follow-up, tenant requests, cold outreach, or CRM data entry.</span>
+    </p>
     <div class="stats">
       <div class="stat reveal"><div class="n">7 days</div><div class="l" data-es="del brief al agente trabajando">from brief to agent working</div></div>
       <div class="stat reveal"><div class="n">$1,497</div><div class="l" data-es="colocación única — desde">one-time placement — from</div></div>
@@ -631,6 +653,7 @@ function goCalendly(successEl, data){
     if (descEl) descEl.setAttribute("content", es ? ES_DESC : EN_DESC);
     var lbl = document.getElementById("lang-label"); if (lbl) lbl.textContent = es ? "English" : "Español";
     window.LANG = lang;
+    try { window.dispatchEvent(new CustomEvent("ba:lang", { detail: lang })); } catch(e){}
     try { localStorage.setItem("ba_lang", lang); } catch(e){}
   }
   var saved=null; try{ saved=localStorage.getItem("ba_lang"); }catch(e){}
@@ -640,6 +663,54 @@ function goCalendly(successEl, data){
   setLang(initial);
   var t=document.getElementById("lang-toggle");
   if(t) t.addEventListener("click", function(){ setLang(window.LANG==="es"?"en":"es"); });
+})();
+
+/* ---- rotating tagline (roles you can staff — product facts, not social proof) ---- */
+(function(){
+  var host = document.getElementById("rot");
+  if(!host) return;
+  var WORDS = {
+    en:["customer support","inbound sales","appointment setting","dispatch & scheduling",
+        "claims follow-up","tenant requests","cold outreach","CRM data entry"],
+    es:["atención al cliente","ventas entrantes","agendamiento de citas","despacho y horarios",
+        "seguimiento de reclamos","solicitudes de inquilinos","prospección en frío","carga de datos al CRM"]
+  };
+  var idx = 0, els = [], timer = null;
+  var reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion:reduce)").matches;
+
+  function size(){
+    var el = els[idx];
+    if(el) host.style.width = Math.ceil(el.getBoundingClientRect().width) + "px";
+  }
+  function build(lang){
+    var list = WORDS[lang] || WORDS.en;
+    if(idx >= list.length) idx = 0;
+    host.innerHTML = "";
+    els = list.map(function(w, i){
+      var el = document.createElement("i");
+      el.className = "rw" + (i === idx ? " on" : "");
+      el.textContent = w;
+      host.appendChild(el);
+      return el;
+    });
+    size();
+  }
+  function tick(){
+    if(document.hidden || els.length < 2) return;
+    els[idx].classList.remove("on");
+    idx = (idx + 1) % els.length;
+    els[idx].classList.add("on");
+    size();
+  }
+  function boot(){
+    build(window.LANG || document.documentElement.lang || "en");
+    if(timer) clearInterval(timer);
+    timer = setInterval(tick, reduce ? 4500 : 2600);
+  }
+  if(document.fonts && document.fonts.ready){ document.fonts.ready.then(boot).catch(boot); }
+  else { boot(); }
+  window.addEventListener("ba:lang", function(e){ build(e.detail); });
+  window.addEventListener("resize", size);
 })();
 
 /* ---- modal ---- */
