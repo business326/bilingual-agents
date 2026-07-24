@@ -92,14 +92,11 @@ header{position:sticky;top:0;z-index:60;background:rgba(255,255,255,.86);backdro
 .brand{display:flex;align-items:center;gap:10px}
 .brand img{height:26px;width:auto}
 .brand b{font-family:var(--disp);font-weight:800;color:var(--navy);font-size:1.06rem;letter-spacing:-.01em}
-.nav-links{display:flex;gap:26px;align-items:center}
-.nav-links a{font-family:var(--disp);font-weight:600;font-size:.92rem;color:var(--ink-soft)}
-.nav-links a:hover{color:var(--navy)}
 .nav-right{display:flex;align-items:center;gap:14px}
 .lang{font-family:var(--disp);font-weight:600;font-size:.86rem;color:var(--ink-soft);background:none;border:1px solid var(--line-2);border-radius:999px;padding:6px 13px;cursor:pointer}
 .lang:hover{color:var(--navy);border-color:var(--navy)}
 .nav .btn{padding:11px 20px;font-size:.94rem;border-radius:12px}
-@media(max-width:900px){.nav-links{display:none}.nav .btn{padding:10px 16px}}
+@media(max-width:900px){.nav .btn{padding:10px 16px}}
 
 /* -------- hero -------- */
 .hero{background:linear-gradient(180deg,var(--cream),#fff);overflow:hidden}
@@ -278,13 +275,6 @@ body.modal-open{overflow:hidden}
       <img src="/logo.png" alt="Bilingual Agents">
       <b>Bilingual Agents</b>
     </a>
-    <nav class="nav-links">
-      <a href="#what" data-es="Qué incluye">What you get</a>
-      <a href="#how" data-es="Cómo funciona">How it works</a>
-      <a href="#pricing" data-es="Precios">Pricing</a>
-      <a href="#guarantee" data-es="Garantía">Guarantee</a>
-      <a href="#faq">FAQ</a>
-    </nav>
     <div class="nav-right">
       <button class="lang" id="lang-toggle"><span id="lang-label">Español</span></button>
       <button class="btn" data-call-cta data-es='Contrata un agente <span class="arr">→</span>'>Hire a bilingual agent <span class="arr">→</span></button>
