@@ -13,6 +13,48 @@ Old URLs (nexohire.vercel.app, nexohire-direct.vercel.app) 308-redirect to the c
 
 **One conversion goal:** every button on both pages is the same action — "Book my free role call." No nav links, no secondary CTAs, no escape routes.
 
+## Traffic splitter (`middleware.ts`)
+
+Ads point at the bare root, `https://www.bilingualagentsgroup.com/`. A Vercel Routing Middleware intercepts that one path and 302-redirects each visitor to one of three landing variants, so all three can be tested on identical traffic without touching the ads.
+
+| Variant | Served at | Weight |
+|---|---|---|
+| A | `/pitch` | 34 |
+| B | `/pitch-b` | 33 |
+| C — a copy of the homepage | `/pitch-c` | 33 |
+
+**Editing the weights.** They live in one object at the top of `middleware.ts`:
+
+```ts
+const SPLIT = {
+  enabled: true,
+  variants: {
+    '/pitch': 34,
+    '/pitch-b': 33,
+    '/pitch-c': 33,
+  },
+}
+```
+
+Change the numbers and redeploy. They do **not** have to add up to 100 — each weight is divided by the sum of all of them, so `{ '/pitch': 1, '/pitch-b': 3 }` is a valid 25/75 split. A weight of `0` takes a variant out of the rotation without deleting it. Adding a fourth variant is a new key plus the matching `*.html` file (and a `!/…` line in `.gitignore` — see below).
+
+**Turning it off.** Set `enabled: false`. Every request to `/` then 302s to `/pitch-c` with no split and no rolling. While disabled the cookie is neither read nor written, so existing assignments survive untouched — flipping it back to `true` puts returning visitors straight back on the variant they were already seeing, and the test data stays clean.
+
+**Visitors who already have a cookie.** The first visit rolls a variant and stores it in a `ba_variant` cookie for 30 days. Every later visit to `/` reads that cookie and sends the visitor to the same page, ignoring the weights entirely — so someone who leaves and comes back is not counted twice under two different variants. Consequences worth knowing:
+
+- Changing the weights only affects **new** visitors. Existing cookie-holders keep their variant until it expires (30 days) or they clear cookies.
+- If a variant is removed from `variants`, anyone holding a cookie for it is re-rolled onto a current variant on their next visit rather than being sent to a dead page.
+- To see the split yourself, use a fresh incognito window per roll — one browser will stick to one variant by design.
+
+**Deliberate details, don't "fix" them:**
+- Redirects are **302**, never 301. A 301 is cached by the browser indefinitely and would freeze a visitor on one variant even after the weights change.
+- The redirect carries the full query string through untouched, so `gclid` / `gbraid` / `wbraid` reach the landing page and Google Ads can still tie a conversion back to its click.
+- The matcher is `'/'` exactly. The variant pages, `/thank-you`, `/booked`, the keyword landing pages, and every asset are never touched.
+- `Cache-Control: no-store` + `Vary: Cookie` are what stop the CDN caching one visitor's 302 and pinning everyone to a single variant.
+- `middleware.ts` needs its own `!/middleware.ts` line in `.gitignore` — this repo ignores everything by default and whitelists deployable files one by one.
+
+**Side effect:** with the middleware live, `/` no longer serves `index.html` at all. Nothing is lost — `/pitch-c` *is* that page — but the client-side splitter still inside `index.html` becomes dead code, reachable only by requesting `/index.html` directly.
+
 ## Go-live checklist (10 minutes)
 
 1. **Booking flow** — every CTA opens a modal form (name, company, company size, industry, work email). No Calendly — submissions go straight to the CRM. *(Done.)*

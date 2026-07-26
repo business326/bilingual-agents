@@ -18,6 +18,7 @@
 !/sitemap.xml
 !/llms.txt
 !/vercel.json
+!/middleware.ts
 
 # --- generated keyword landing pages ---
 !/bilingual-staffing
