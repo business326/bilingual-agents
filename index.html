@@ -2,21 +2,49 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+<!-- ===== A/B split — paid traffic only, 50/50 to /pitch | /pitch-b =====
+     Runs before GTM so a split visitor never logs a pageview on "/".
+     Organic, direct and referral traffic is left on the homepage. ===== -->
+<script>(function(){
+  try{
+    var q = window.location.search;
+    if(!q) return;                       /* no query string -> not an ad click */
+    var p = new URLSearchParams(q);
+    var paid = p.has('gclid') || p.has('gbraid') || p.has('wbraid') ||
+               /^(cpc|ppc|paid)/i.test(p.get('utm_medium') || '');
+    if(!paid) return;                    /* not from an ad -> stay on the homepage */
+
+    var m = document.cookie.match(/(?:^|;\s*)ba_ab=([ab])/);
+    var v = m ? m[1] : (Math.random() < 0.5 ? 'a' : 'b');
+    document.cookie = 'ba_ab=' + v + ';path=/;max-age=2592000;SameSite=Lax';
+
+    /* Suppress this page's tags. location.replace() does NOT stop the parser, so
+       the GTM + gtag snippets below would still run and could log a pageview on
+       "/" before the navigation commits — which would make GA4 record the session
+       landing page as "/" instead of the variant, merging both arms of the test. */
+    window.__baSplit = true;
+
+    /* keep the full query string so gclid survives for the Conversion Linker */
+    window.location.replace((v === 'a' ? '/pitch' : '/pitch-b') + q + window.location.hash);
+  }catch(e){}
+})();</script>
+<!-- ===== end A/B split ===== -->
 <!-- Google Tag Manager -->
-<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+<script>if(!window.__baSplit){(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
 new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
 j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-NQF7H8QS');</script>
+})(window,document,'script','dataLayer','GTM-NQF7H8QS');}</script>
 <!-- End Google Tag Manager -->
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-GSDSVNY5BL"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-GSDSVNY5BL');
+  if(!window.__baSplit){
+    gtag('js', new Date());
+    gtag('config', 'G-GSDSVNY5BL');
+  }
 </script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Hire Bilingual Remote Agents from Latin America | Bilingual Agents</title>
