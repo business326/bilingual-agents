@@ -22,6 +22,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   gtag('js', new Date());
   gtag('config', 'G-GSDSVNY5BL');
 </script>
+<meta name="ba-build" content="fix-20260803-30a94a7">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Hire Bilingual Remote Agents from Latin America | Bilingual Agents</title>
 <meta name="description" content="Hire vetted, psychologist-screened bilingual (English/Spanish) remote agents from Latin America — an agent working for you within 7 days, from $1,497. 45-day free replacement.">
@@ -1184,7 +1185,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <div class="ok-ring"><svg viewBox="0 0 24 24" fill="none"><path d="M4.5 12.5l5 5L19.5 7" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
         <h3 data-es="¡Listo! Ahora elige tu horario →">You're in! Now pick your time →</h3>
         <p data-es="Te llevamos a nuestro calendario para reservar tu llamada de 15 min.">Taking you to our calendar to book your 15-min call.</p>
-        <a class="cta-btn cal-link" href="https://calendly.com/business-bilingualagentsgroup/new-meeting" target="_self" rel="noopener" style="display:inline-flex;margin-top:4px" data-es="¿No te redirige? Reserva aquí →">Not redirected? Book your call →</a>
+        <a class="cta-btn cal-link" href="/thank-you" target="_self" rel="noopener" style="display:inline-flex;margin-top:4px" data-es="¿No te redirige? Reserva aquí →">Not redirected? Book your call →</a>
       </div>
     </div>
   </div>
@@ -1256,7 +1257,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <div class="ok-ring"><svg viewBox="0 0 24 24" fill="none"><path d="M4.5 12.5l5 5L19.5 7" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
       <h3 data-es="¡Listo! Ahora elige tu horario →">You're in! Now pick your time →</h3>
       <p data-es="Te llevamos a nuestro calendario para reservar tu llamada de 15 min.">Taking you to our calendar to book your 15-min call.</p>
-      <a class="cta-btn cal-link" href="https://calendly.com/business-bilingualagentsgroup/new-meeting" target="_self" rel="noopener" style="display:inline-flex;margin-top:4px" data-es="¿No te redirige? Reserva aquí →">Not redirected? Book your call →</a>
+      <a class="cta-btn cal-link" href="/thank-you" target="_self" rel="noopener" style="display:inline-flex;margin-top:4px" data-es="¿No te redirige? Reserva aquí →">Not redirected? Book your call →</a>
     </div>
   </div>
 </div>
@@ -1275,7 +1276,7 @@ var FORM_ENDPOINT = "https://vwprjidtgneuatvszfkg.supabase.co/functions/v1/submi
 function goCalendly(successEl, data){
   var name  = ((data && data.get("name"))  || "").toString().trim();
   var email = ((data && data.get("email")) || "").toString().trim();
-  try { sessionStorage.setItem("ba_lead", JSON.stringify({ name: name, email: email })); } catch(e){}
+  try { sessionStorage.setItem("ba_lead", JSON.stringify({ name: name, email: email, variant: "bilingual-agents-pitch-c" })); } catch(e){}
   var link = successEl ? successEl.querySelector(".cal-link") : null;
   if (link) link.setAttribute("href", "/thank-you");
   setTimeout(function(){ try { window.location.assign("/thank-you"); } catch(e){ window.location.href = "/thank-you"; } }, 900);
@@ -1373,7 +1374,7 @@ mForm.addEventListener("submit", function(e){
   mBtn.disabled = true;
   mBtn.textContent = window.LANG === "es" ? "Agendando…" : "Booking…";
   var data = new FormData(mForm);
-  data.append("_page", "bilingual-agents-landing");
+  data.append("_page", "bilingual-agents-pitch-c");
   function done(){
     /* fire your Google Ads / Meta Pixel conversion event here */
     mForm.style.display = "none";
@@ -1441,7 +1442,7 @@ form.addEventListener("submit", function(e){
   btn.disabled = true;
   btn.textContent = window.LANG === "es" ? "Agendando…" : "Booking…";
   var data = new FormData(form);
-  data.append("_page", "bilingual-agents-landing");
+  data.append("_page", "bilingual-agents-pitch-c");
   function done(){
     /* fire your Google Ads / Meta Pixel conversion event here */
     form.style.display = "none";

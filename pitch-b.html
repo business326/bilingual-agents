@@ -18,6 +18,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
   gtag('config', 'G-GSDSVNY5BL');
 </script>
+<meta name="ba-build" content="fix-20260803-30a94a7">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Hire Bilingual Agents from Latin America — in 7 days | Bilingual Agents</title>
 <meta name="description" content="Hire vetted, psychologist-screened bilingual (English/Spanish) remote agents from Latin America — working for you within 7 days, from $1,497. 45-day free replacement. No contracts. $0 ongoing fees.">
@@ -652,7 +653,7 @@ document.documentElement.classList.add("js");
 function goCalendly(successEl, data){
   var name  = ((data && data.get("name"))  || "").toString().trim();
   var email = ((data && data.get("email")) || "").toString().trim();
-  try { sessionStorage.setItem("ba_lead", JSON.stringify({ name: name, email: email })); } catch(e){}
+  try { sessionStorage.setItem("ba_lead", JSON.stringify({ name: name, email: email, variant: "bilingual-agents-pitch-b" })); } catch(e){}
   setTimeout(function(){ try { window.location.assign("/thank-you"); } catch(e){ window.location.href = "/thank-you"; } }, 900);
 }
 
