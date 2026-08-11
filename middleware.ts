@@ -24,14 +24,19 @@
 const SPLIT = {
   enabled: true,
   variants: {
+    // 2026-08-10: /pitch-c rotated OUT (engagement 24.2% vs /pitch 41.9%,
+    // n=62/74, p≈0.03 — the confirmed loser). /pitch-d rotated IN: the
+    // mobile-first challenger. Cookie-holders of a removed variant re-roll
+    // automatically on their next visit.
     '/pitch': 34,
     '/pitch-b': 33,
-    '/pitch-c': 33,
+    '/pitch-d': 33,
   },
 } as const;
 
-/** Where all traffic goes when `enabled` is false. */
-const FALLBACK = '/pitch-c';
+/** Where all traffic goes when `enabled` is false. Kept on the current
+ *  engagement leader — was '/pitch-c' until it lost the three-way test. */
+const FALLBACK = '/pitch';
 
 /** Cookie holding the assigned variant. 30 days, in seconds. */
 const COOKIE = 'ba_variant';

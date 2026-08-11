@@ -18,6 +18,10 @@ contracts
 onboarding
 welcome
 
+# Internal performance console — spend, CPL and account structure.
+# Never ship this with the public landing page.
+bag-dashboard
+
 # Sibling projects (each is its own codebase / deploy)
 nexohire-direct
 bilingual-agents-crm

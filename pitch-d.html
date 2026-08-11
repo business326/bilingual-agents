@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<!-- Variant D — mobile-first challenger.
+     The data behind it: mobile is 57% of paid traffic and converts ~9x worse
+     than desktop (0.57% vs 5.08%, replicated across two windows). Hypothesis:
+     the long editorial page loses phones. Treatment: the whole offer readable
+     on one phone screen, an INLINE form (no modal detour), no webfonts.
+     Everything that touches money is identical to /pitch: same form fields,
+     same honeypot, same submit-lead endpoint, same /thank-you flow, same GTM
+     + GA4 tags, one CTA. -->
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-NQF7H8QS');</script>
+<!-- End Google Tag Manager -->
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-GSDSVNY5BL"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-GSDSVNY5BL');
+</script>
+<meta name="ba-build" content="pitchd-20260810">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hire a Bilingual Agent — Working for You in 7 Days | Bilingual Agents</title>
+<meta name="description" content="Vetted, psychologist-screened bilingual (English/Spanish) agents from Latin America. Working for you within 7 days, from $1,497 one time. 45-day free replacement.">
+<link rel="canonical" href="https://www.bilingualagentsgroup.com/">
+<meta name="theme-color" content="#F7F2E9">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%23F7F2E9'/%3E%3Ccircle cx='12' cy='16' r='8' fill='none' stroke='%23211A12' stroke-width='2.6'/%3E%3Ccircle cx='20' cy='16' r='8' fill='none' stroke='%23D8491F' stroke-width='2.6'/%3E%3C/svg%3E">
+<style>
+/* Deliberately no webfonts: this variant tests speed + brevity on phones. */
+:root{
+  --paper:#F7F2E9; --paper-2:#F1EADC; --sand:#EBE1CC;
+  --ink:#211A12; --ink-soft:#56493B;
+  --line:rgba(33,26,18,.16); --line-strong:rgba(33,26,18,.32);
+  --terra:#D8491F; --terra-deep:#A93A15;
+  --green:#1E5641; --green-tint:#E3EAE0; --gold:#E0A13C;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  background:var(--paper);color:var(--ink);font-size:17px;line-height:1.55;
+  -webkit-font-smoothing:antialiased;overflow-x:hidden;
+}
+img,svg{display:block;max-width:100%}
+a{color:inherit}
+button{font:inherit;cursor:pointer}
+::selection{background:var(--terra);color:var(--paper)}
+:focus-visible{outline:3px solid var(--terra);outline-offset:2px;border-radius:4px}
+.wrap{max-width:640px;margin:0 auto;padding:0 20px}
+
+/* ---- hero: the whole offer on one screen ---- */
+.hero{padding:26px 0 30px;min-height:92svh;display:flex;flex-direction:column;justify-content:center}
+.brand{display:flex;align-items:center;gap:9px;margin-bottom:22px}
+.brand svg{width:26px;height:26px}
+.brand b{font-size:.95rem;letter-spacing:.02em}
+h1{font-size:clamp(1.9rem,7.2vw,2.7rem);line-height:1.12;letter-spacing:-.02em;font-weight:800}
+h1 .u{color:var(--terra)}
+.sub{margin-top:12px;color:var(--ink-soft);font-size:1.02rem;max-width:34ch}
+.props{margin:20px 0 22px;display:grid;gap:10px}
+.prop{display:flex;gap:10px;align-items:flex-start;font-size:.98rem}
+.prop svg{width:19px;height:19px;flex:none;margin-top:3px;color:var(--green)}
+.prop b{font-weight:700}
+.cta-btn{
+  display:flex;align-items:center;justify-content:center;gap:8px;width:100%;
+  background:var(--terra);color:#fff;border:none;border-radius:12px;
+  padding:17px 20px;font-size:1.08rem;font-weight:800;letter-spacing:.01em;
+  box-shadow:0 2px 0 var(--terra-deep);text-decoration:none;
+}
+.cta-btn:active{transform:translateY(1px);box-shadow:none}
+.cta-fine{margin-top:10px;text-align:center;font-size:.8rem;color:var(--ink-soft)}
+.price-line{margin-top:18px;display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}
+.price-line .from{font-size:.85rem;color:var(--ink-soft);text-transform:uppercase;letter-spacing:.06em}
+.price-line .price{font-size:2rem;font-weight:800;letter-spacing:-.02em}
+.price-line .strike{color:var(--ink-soft);text-decoration:line-through;font-size:.95rem}
+.price-line .vs{font-size:.8rem;color:var(--ink-soft)}
+
+/* ---- compare strip ---- */
+.compare{background:var(--paper-2);border-top:1.5px solid var(--line);border-bottom:1.5px solid var(--line);padding:26px 0}
+.compare h2{font-size:1.25rem;font-weight:800;margin-bottom:14px;letter-spacing:-.01em}
+.cmp-row{display:flex;justify-content:space-between;align-items:baseline;padding:10px 0;border-bottom:1px dashed var(--line);font-size:.95rem}
+.cmp-row:last-child{border-bottom:none}
+.cmp-row .who{color:var(--ink-soft)}
+.cmp-row .amt{font-weight:700;white-space:nowrap}
+.cmp-row.us .who,.cmp-row.us .amt{color:var(--terra);font-weight:800}
+.cmp-row .amt s{color:var(--ink-soft);font-weight:500}
+
+/* ---- how ---- */
+.how{padding:30px 0}
+.how h2{font-size:1.25rem;font-weight:800;margin-bottom:14px;letter-spacing:-.01em}
+.step{display:flex;gap:12px;padding:9px 0;font-size:.96rem}
+.step .d{flex:none;width:64px;font-weight:800;color:var(--terra);font-variant-numeric:tabular-nums}
+.guarantee{margin-top:18px;background:var(--green-tint);border:1.5px solid var(--green);border-radius:12px;padding:15px 16px;font-size:.95rem}
+.guarantee b{color:var(--green)}
+
+/* ---- form ---- */
+.book{background:var(--ink);color:var(--paper);padding:34px 0 42px}
+.book h2{font-size:1.5rem;font-weight:800;letter-spacing:-.01em;line-height:1.2}
+.book .lede{color:rgba(247,242,233,.75);margin:8px 0 20px;font-size:.95rem}
+.field{margin-bottom:12px}
+.field label{display:block;font-size:.8rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase;margin-bottom:5px;color:rgba(247,242,233,.85)}
+.field label em{color:var(--gold);font-style:normal}
+.field input,.field select{
+  width:100%;background:rgba(247,242,233,.07);border:1.5px solid rgba(247,242,233,.25);
+  border-radius:10px;padding:13px 14px;font-size:16px;color:var(--paper);
+}
+.field select{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23F7F2E9' stroke-width='2' fill='none'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 14px center}
+.field select:invalid{color:rgba(247,242,233,.5)}
+.field option{color:var(--ink);background:var(--paper)}
+.field input::placeholder{color:rgba(247,242,233,.4)}
+.field input:focus,.field select:focus{outline:none;border-color:var(--gold)}
+.form-fine{margin-top:11px;text-align:center;font-size:.78rem;color:rgba(247,242,233,.6);line-height:1.5}
+.form-success{display:none;text-align:center;padding:26px 8px}
+.form-success.show{display:block}
+.ok-ring{width:56px;height:56px;border-radius:50%;background:var(--green);color:#fff;display:flex;align-items:center;justify-content:center;margin:0 auto 14px}
+.ok-ring svg{width:26px;height:26px}
+.form-success h3{font-size:1.25rem;margin-bottom:6px}
+.form-success p{color:rgba(247,242,233,.75);font-size:.92rem;margin-bottom:14px}
+
+/* ---- faq-lite + footer ---- */
+.faq{padding:30px 0 8px}
+.faq h2{font-size:1.25rem;font-weight:800;margin-bottom:8px;letter-spacing:-.01em}
+.faq details{border-bottom:1px solid var(--line);padding:11px 0}
+.faq summary{font-weight:700;font-size:.96rem;cursor:pointer;list-style:none;display:flex;justify-content:space-between;gap:10px}
+.faq summary::after{content:"+";color:var(--terra);font-weight:800}
+.faq details[open] summary::after{content:"–"}
+.faq p{margin-top:8px;color:var(--ink-soft);font-size:.93rem}
+footer{padding:22px 0 30px;font-size:.78rem;color:var(--ink-soft)}
+footer a{margin-right:14px}
+
+/* ---- sticky CTA (mobile) ---- */
+.sticky{position:fixed;left:0;right:0;bottom:0;z-index:800;padding:10px 14px calc(10px + env(safe-area-inset-bottom));
+  background:rgba(247,242,233,.96);border-top:1.5px solid var(--line-strong);
+  transform:translateY(110%);transition:transform .25s ease}
+.sticky.show{transform:none}
+.sticky .cta-btn{padding:14px 16px;font-size:1rem}
+@media(min-width:700px){
+  .hero{min-height:0;padding:56px 0 44px}
+  .sticky{display:none}
+}
+
+/* WhatsApp FAB — same contact path as /pitch; whatsapp_click is tracked */
+.wa-fab{position:fixed;right:20px;bottom:20px;z-index:9999;width:56px;height:56px;border-radius:50%;background:#25D366;display:flex;align-items:center;justify-content:center;box-shadow:0 6px 18px rgba(0,0,0,.28)}
+.wa-fab svg{width:30px;height:30px;fill:#fff;display:block}
+@media(max-width:768px){.wa-fab{bottom:84px;right:16px;width:52px;height:52px}.wa-fab svg{width:28px;height:28px}}
+</style>
+</head>
+<body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NQF7H8QS"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+<!-- ============ HERO: the whole offer, one screen ============ -->
+<section class="hero">
+  <div class="wrap">
+    <div class="brand">
+      <svg viewBox="0 0 32 32"><circle cx="12" cy="16" r="8" fill="none" stroke="#211A12" stroke-width="2.6"/><circle cx="20" cy="16" r="8" fill="none" stroke="#D8491F" stroke-width="2.6"/></svg>
+      <b>Bilingual Agents</b>
+    </div>
+    <h1>A bilingual agent, <span class="u">working for you in 7 days.</span></h1>
+    <p class="sub">English/Spanish remote agents from Latin America. We source, screen and psych-test them. You interview finalists and pick.</p>
+
+    <div class="props">
+      <div class="prop"><svg viewBox="0 0 24 24" fill="none"><path d="M4.5 12.5l5 5L19.5 7" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg><span><b>Psychologist-screened</b> — every finalist comes with a psych evaluation report</span></div>
+      <div class="prop"><svg viewBox="0 0 24 24" fill="none"><path d="M4.5 12.5l5 5L19.5 7" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg><span><b>45-day free replacement</b> — not the right fit? We replace them, no questions</span></div>
+      <div class="prop"><svg viewBox="0 0 24 24" fill="none"><path d="M4.5 12.5l5 5L19.5 7" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg><span><b>~90 minutes of your time</b> total — we do the rest. $0 ongoing fees, no contracts</span></div>
+    </div>
+
+    <div class="price-line">
+      <span class="from">One-time fee</span>
+      <span class="price">from $1,497</span>
+      <span class="vs">vs <span class="strike">$3,500</span> HireLATAM · <span class="strike">$6,000+</span> US agencies</span>
+    </div>
+
+    <div style="margin-top:18px">
+      <a class="cta-btn" href="#book" data-call-cta>Hire a bilingual agent <span aria-hidden="true">→</span></a>
+      <p class="cta-fine">Free 15-min role call · A human replies within one business day</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PRICE ANCHOR ============ -->
+<section class="compare">
+  <div class="wrap">
+    <h2>What everyone else charges</h2>
+    <div class="cmp-row"><span class="who">US staffing agencies</span><span class="amt"><s>$6,000–$11,250</s></span></div>
+    <div class="cmp-row"><span class="who">HireLATAM</span><span class="amt"><s>$3,500</s></span></div>
+    <div class="cmp-row"><span class="who">DIY job boards (your hours, no vetting)</span><span class="amt"><s>weeks of work</s></span></div>
+    <div class="cmp-row us"><span class="who">Bilingual Agents</span><span class="amt">from $1,497</span></div>
+  </div>
+</section>
+
+<!-- ============ HOW ============ -->
+<section class="how">
+  <div class="wrap">
+    <h2>Day 0 to day 7</h2>
+    <div class="step"><span class="d">Day 0</span><span>Free 15-min role call — we map the role and salary band</span></div>
+    <div class="step"><span class="d">Day 1–5</span><span>We source, interview and psych-screen candidates</span></div>
+    <div class="step"><span class="d">Day 6</span><span>You meet 2–3 finalists and pick</span></div>
+    <div class="step"><span class="d">Day 7</span><span>Your agent starts working</span></div>
+    <div class="guarantee"><b>The guarantee:</b> if your agent isn't right in the first 45 days, we replace them free — no forms, no questions. You pay the agent directly; we never touch their salary.</div>
+  </div>
+</section>
+
+<!-- ============ BOOK (inline form — the single conversion point) ============ -->
+<section class="book" id="book">
+  <div class="wrap">
+    <h2>Book your free role call</h2>
+    <p class="lede">Tell us who you need. We reply within one business day.</p>
+    <form id="lead-form" novalidate>
+      <input type="text" name="company_url" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;height:1px;width:1px;opacity:0">
+      <div class="field">
+        <label for="f-name">Your name <em>*</em></label>
+        <input id="f-name" name="name" type="text" autocomplete="name" placeholder="Jordan Reyes" required>
+      </div>
+      <div class="field">
+        <label for="f-company">Company <em>*</em></label>
+        <input id="f-company" name="company" type="text" autocomplete="organization" placeholder="Acme Inc." required>
+      </div>
+      <div class="field">
+        <label for="f-size">Company size <em>*</em></label>
+        <select id="f-size" name="size" required>
+          <option value="" disabled selected>Choose…</option>
+          <option>1–5 employees</option>
+          <option>6–20 employees</option>
+          <option>21–50 employees</option>
+          <option>51–200 employees</option>
+          <option>200+ employees</option>
+        </select>
+      </div>
+      <div class="field">
+        <label for="f-industry">Industry <em>*</em></label>
+        <input id="f-industry" name="industry" type="text" placeholder="e.g. Insurance, Property Management" required>
+      </div>
+      <div class="field">
+        <label for="f-email">Work email <em>*</em></label>
+        <input id="f-email" name="email" type="email" autocomplete="email" placeholder="jordan@acme.com" required>
+      </div>
+      <div class="field">
+        <label for="f-phone">Phone <em>*</em></label>
+        <input id="f-phone" name="phone" type="tel" autocomplete="tel" placeholder="+1 (555) 123-4567" required>
+      </div>
+      <button class="cta-btn" type="submit" id="form-btn">Hire a bilingual agent <span aria-hidden="true">→</span></button>
+      <p class="form-fine">A human replies within one business day. No spam.<br>45-day free replacement · No contracts · $0 ongoing fees</p>
+    </form>
+    <div class="form-success" id="form-success">
+      <div class="ok-ring"><svg viewBox="0 0 24 24" fill="none"><path d="M4.5 12.5l5 5L19.5 7" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <h3>You're in! Now pick your time →</h3>
+      <p>Taking you to our calendar to book your 15-min call.</p>
+      <a class="cta-btn cal-link" href="/thank-you" target="_self" rel="noopener" style="display:inline-flex;width:auto;padding:13px 22px">Not redirected? Book your call →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FAQ-LITE ============ -->
+<section class="faq">
+  <div class="wrap">
+    <h2>Quick answers</h2>
+    <details>
+      <summary>What do the agents cost me monthly?</summary>
+      <p>You pay the agent directly — typical full-time salaries run $800–$1,500/mo depending on the role. We charge the one-time placement fee only. $0 ongoing.</p>
+    </details>
+    <details>
+      <summary>What roles can you fill?</summary>
+      <p>Customer support, inside sales / SDR, executive assistants, virtual assistants, admin &amp; ops — fully bilingual English/Spanish.</p>
+    </details>
+    <details>
+      <summary>What if the agent doesn't work out?</summary>
+      <p>45-day free replacement, no questions asked. Tell us it's not working and we restart the search at no charge.</p>
+    </details>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <a href="/privacy">Privacy</a><a href="/terms">Terms</a>
+    <span>© <span id="year"></span> Bilingual Agents Group · business@bilingualagentsgroup.com</span>
+  </div>
+</footer>
+
+<!-- sticky mobile CTA -->
+<div class="sticky" id="sticky-cta">
+  <a class="cta-btn" href="#book" data-call-cta>Hire a bilingual agent <span aria-hidden="true">→</span></a>
+</div>
+
+<!-- Floating WhatsApp chat button -->
+<a class="wa-fab" href="https://wa.me/12513320531?text=Hi%20Bilingual%20Agents%2C%20I%27m%20interested%20in%20hiring%20a%20bilingual%20agent." target="_blank" rel="noopener noreferrer" aria-label="Chat with us on WhatsApp" title="Chat with us on WhatsApp">
+  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51l-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.71.306 1.263.489 1.694.625.712.227 1.36.195 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
+
+<script>
+/* Same CRM intake as every other variant. */
+var FORM_ENDPOINT = "https://vwprjidtgneuatvszfkg.supabase.co/functions/v1/submit-lead";
+
+/* After the lead saves, hand off to /thank-you (which fires the conversion
+   tracking and bounces to Calendly, prefilled from sessionStorage). Identical
+   to /pitch so every variant's conversions count the same way. */
+function goCalendly(successEl, data){
+  var name  = ((data && data.get("name"))  || "").toString().trim();
+  var email = ((data && data.get("email")) || "").toString().trim();
+  try { sessionStorage.setItem("ba_lead", JSON.stringify({ name: name, email: email, variant: "bilingual-agents-pitch-d" })); } catch(e){}
+  var link = successEl ? successEl.querySelector(".cal-link") : null;
+  if (link) link.setAttribute("href", "/thank-you");
+  setTimeout(function(){ try { window.location.assign("/thank-you"); } catch(e){ window.location.href = "/thank-you"; } }, 900);
+}
+
+/* ---- the one CTA: every button jumps to the inline form ----
+   Instant jump, not smooth scroll: it cannot be interrupted, works with
+   reduced-motion and inside webviews, and puts the buyer on the form with
+   zero dawdle. Focus lands on the name field without re-scrolling. */
+document.querySelectorAll("[data-call-cta]").forEach(function(el){
+  el.addEventListener("click", function(e){
+    e.preventDefault();
+    var book = document.getElementById("book");
+    book.scrollIntoView({ behavior: "auto", block: "start" });
+    try { history.replaceState(null, "", "#book"); } catch(err){}
+    var first = document.querySelector("#lead-form input[name=name]");
+    if (first) { try { first.focus({ preventScroll: true }); } catch(err){ first.focus(); } }
+  });
+});
+
+/* ---- inline form ---- */
+var form = document.getElementById("lead-form");
+var success = document.getElementById("form-success");
+var btn = document.getElementById("form-btn");
+form.addEventListener("submit", function(e){
+  e.preventDefault();
+  if (!form.checkValidity()) { form.reportValidity(); return; }
+  btn.disabled = true;
+  btn.textContent = "Booking…";
+  var data = new FormData(form);
+  data.append("_page", "bilingual-agents-pitch-d");
+  function done(){
+    form.style.display = "none";
+    success.classList.add("show");
+    goCalendly(success, data);
+  }
+  function fail(){
+    btn.disabled = false;
+    btn.innerHTML = 'Hire a bilingual agent <span aria-hidden="true">→</span>';
+    alert("Something hiccuped — please email business@bilingualagentsgroup.com and we'll reply right away.");
+  }
+  if (FORM_ENDPOINT) {
+    fetch(FORM_ENDPOINT, { method: "POST", body: data, headers: { "Accept": "application/json" } })
+      .then(function(r){ if(!r.ok){ fail(); return; } done(); })
+      .catch(fail);
+  } else {
+    setTimeout(done, 600);
+  }
+});
+
+/* ---- sticky CTA: shows after the hero, hides at the form ---- */
+var sticky = document.getElementById("sticky-cta");
+var hero = document.querySelector(".hero");
+var bookSection = document.getElementById("book");
+function stickyCheck(){
+  var pastHero = window.scrollY > hero.offsetTop + hero.offsetHeight * 0.7;
+  var bookTop = bookSection.getBoundingClientRect().top;
+  var atForm = bookTop < window.innerHeight * 0.7;
+  sticky.classList.toggle("show", pastHero && !atForm);
+}
+window.addEventListener("scroll", stickyCheck, { passive: true });
+stickyCheck();
+
+document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
