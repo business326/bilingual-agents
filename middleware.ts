@@ -28,8 +28,12 @@ const SPLIT = {
     // n=62/74, p≈0.03 — the confirmed loser). /pitch-d rotated IN: the
     // mobile-first challenger. Cookie-holders of a removed variant re-roll
     // automatically on their next visit.
-    '/pitch': 34,
-    '/pitch-b': 33,
+    // 2026-08-12: 5-point tilt /pitch-b → /pitch. Since launch (07-26..08-11)
+    // /pitch engages 40.9% (n=88) vs /pitch-b 30.4% (n=79) — 10.5pp gap,
+    // one-sided p≈0.078, LAGGING but not kill-ready (leads-floor is 1:1,
+    // form starts comparable). Tilt reverses freely if the picture flips.
+    '/pitch': 39,
+    '/pitch-b': 28,
     '/pitch-d': 33,
   },
 } as const;
