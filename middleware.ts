@@ -28,14 +28,13 @@ const SPLIT = {
     // n=62/74, p≈0.03 — the confirmed loser). /pitch-d rotated IN: the
     // mobile-first challenger. Cookie-holders of a removed variant re-roll
     // automatically on their next visit.
-    // 2026-08-15: second 5-point tilt /pitch-b → /pitch. Since launch
-    // (07-26..08-14) /pitch engages 41.6% (n=101) vs /pitch-b 30.6% (n=85) —
-    // 11.0pp gap, one-sided p≈0.060. Still LAGGING, not kill-ready: leads-floor
-    // 1:1, form starts 3 vs 1 (one-event delta), Clarity friction clean on
-    // both. Kill gate (a) needs 113 sessions/arm (/pitch-b has 85).
-    '/pitch': 44,
-    '/pitch-b': 23,
-    '/pitch-d': 33,
+    // 2026-08-18: /pitch-b KILLED under gate (b). Since launch (07-26..08-17)
+    // /pitch engaged 43.1% (47/109) vs /pitch-b 29.7% (27/91) — z=1.96,
+    // one-sided p≈0.025 — corroborated by form-start rate 4/109 vs 0/91 and
+    // Clarity active time ~46s/session vs ~12s/session (friction zero on both:
+    // disinterest, not breakage). Cookie-holders re-roll on next visit.
+    '/pitch': 50,
+    '/pitch-d': 50,
   },
 } as const;
 
