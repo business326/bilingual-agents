@@ -33,8 +33,16 @@ const SPLIT = {
     // one-sided p≈0.025 — corroborated by form-start rate 4/109 vs 0/91 and
     // Clarity active time ~46s/session vs ~12s/session (friction zero on both:
     // disinterest, not breakage). Cookie-holders re-roll on next visit.
-    '/pitch': 50,
-    '/pitch-d': 50,
+    // 2026-08-18: /pitch-e LAUNCHED into the freed slot — clone of leader
+    // /pitch encoding two learnings: (1) the win is desktop-only (49.2% vs
+    // 35.6% mobile on /pitch), so ≤760px gets a short lede, tighter hero,
+    // pricing-first section order and an earlier sticky CTA while desktop
+    // renders identically; (2) the WhatsApp FAB (second contact path) is
+    // removed for single-CTA purity. Hypothesis: hold desktop, lift mobile
+    // engagement above ~30%.
+    '/pitch': 34,
+    '/pitch-d': 33,
+    '/pitch-e': 33,
   },
 } as const;
 
