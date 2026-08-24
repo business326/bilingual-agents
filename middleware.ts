@@ -40,8 +40,11 @@ const SPLIT = {
     // renders identically; (2) the WhatsApp FAB (second contact path) is
     // removed for single-CTA purity. Hypothesis: hold desktop, lift mobile
     // engagement above ~30%.
-    '/pitch': 34,
-    '/pitch-d': 33,
+    // 2026-08-23: 5pt tilt /pitch-d -> /pitch. Since-launch engagement 45.4%
+    // (54/119) vs 36.1% (13/36) - 9.2pp gap at the 30-session checkpoint the
+    // 08-21 run pre-committed to. LAGGING, not kill-ready (z=0.98, p~0.16).
+    '/pitch': 39,
+    '/pitch-d': 28,
     '/pitch-e': 33,
   },
 } as const;
