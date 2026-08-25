@@ -43,8 +43,13 @@ const SPLIT = {
     // 2026-08-23: 5pt tilt /pitch-d -> /pitch. Since-launch engagement 45.4%
     // (54/119) vs 36.1% (13/36) - 9.2pp gap at the 30-session checkpoint the
     // 08-21 run pre-committed to. LAGGING, not kill-ready (z=0.98, p~0.16).
-    '/pitch': 39,
-    '/pitch-d': 28,
+    // 2026-08-25: another 5pt tilt /pitch-d -> /pitch. Gap widened to 11.3pp
+    // (45.5% 55/121 vs 34.2% 13/38), z=1.22, one-sided p~0.11. Still LAGGING,
+    // not kill-ready: gate (b) needs 60 sessions/arm (22 to go) and no
+    // corroborating friction/form-start delta yet (Clarity friction zero on
+    // both arms). /pitch-d keeps 23 to finish its verdict.
+    '/pitch': 44,
+    '/pitch-d': 23,
     '/pitch-e': 33,
   },
 } as const;
