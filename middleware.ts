@@ -48,9 +48,17 @@ const SPLIT = {
     // not kill-ready: gate (b) needs 60 sessions/arm (22 to go) and no
     // corroborating friction/form-start delta yet (Clarity friction zero on
     // both arms). /pitch-d keeps 23 to finish its verdict.
-    '/pitch': 44,
-    '/pitch-d': 23,
-    '/pitch-e': 33,
+    // 2026-08-28: double tilt toward the leader. /pitch-d gap widened again to
+    // 15.3pp since-launch (45.1% 60/133 vs 29.8% 14/47), z=1.84, one-sided
+    // p~0.033 — would clear gate (b)'s p<0.10 with corroboration (Clarity
+    // active time 9s vs 32s/session), but sits at 47/60 sessions, so the kill
+    // waits; -8 pts to the floor of 15 (gap >12pp warranted 10, floor binds).
+    // /pitch-e slipped to LAGGING: 34.3% (12/35), 10.9pp behind — in the
+    // 8-12pp band, -5 pts. Its mobile-lift hypothesis is not showing yet
+    // (mobile 33.3% vs /pitch 57.1% since 08-18, n tiny).
+    '/pitch': 57,
+    '/pitch-d': 15,
+    '/pitch-e': 28,
   },
 } as const;
 
