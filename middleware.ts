@@ -56,8 +56,16 @@ const SPLIT = {
     // /pitch-e slipped to LAGGING: 34.3% (12/35), 10.9pp behind — in the
     // 8-12pp band, -5 pts. Its mobile-lift hypothesis is not showing yet
     // (mobile 33.3% vs /pitch 57.1% since 08-18, n tiny).
-    '/pitch': 57,
-    '/pitch-d': 15,
+    // 2026-08-31: partial REVERSAL of the 08-28 tilt (57/15/28 -> 47/25/28).
+    // The gap collapsed: /pitch-d since-launch is back to 36.5% (19/52) vs
+    // /pitch 43.9% (61/139) - 7.4pp, z=0.92, p~0.18 - below the 8pp LAGGING
+    // band, and /pitch-d has outrun /pitch since 08-18 (41.7% vs 40.0%).
+    // /pitch-e narrowed to 3.3pp (40.5%, 15/37). Both COMPETITIVE; +10 back
+    // to /pitch-d so it reaches its 60-session gate (52 now) faster. NB: ads
+    // now serve Mon-Fri 7:00-19:00 only (agency dayparting added 08-28), so
+    // weekend session counts near zero are expected, not breakage.
+    '/pitch': 47,
+    '/pitch-d': 25,
     '/pitch-e': 28,
   },
 } as const;
